@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script src="ajaxAPI.js"></script>
+  </head>
+  <body>
+    <div id='title'>title</div>
+    <div id='form'>
+      <form>
+	<input type="text" name="searchBox">
+
+	<select> <!-- Filter By Languages  -->
+	  <option value="Python">Python</option>
+	  <option value="JSON">JSON</option>
+	  <option value="JavaScript">JavaScript</option>
+	  <option value="SQL">SQL</option>
+	</select>
+
+	<select> <!-- Filter Number of Pages -->
+	  <option value="1">1</option>
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	</select>
+
+	<input type="button" name="search" value="Search" onClick="displayResults()">
+      </form>
+    </div>
+    <div id="searchResults">
+    </div>
+  </body>
+</html>
