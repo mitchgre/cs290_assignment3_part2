@@ -1,1 +1,85 @@
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# touch demo.js
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# touch index.html
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  demo.js  index.html  vid1
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mv demo.js vid1/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mv index.html 
+mv: missing destination file operand after ‘index.html’
+Try 'mv --help' for more information.
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mv index.html vid1/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  vid1
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git init
+Initialized empty Git repository in /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/.git/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "will copy text from videos and see if they work"
+On branch master
+
+Initial commit
+
+Untracked files:
+	.#290-w3.org
+	290-w3.org
+	vid1/
+
+nothing added to commit but untracked files present
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add .
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "will copy text from videos and see if they work"
+[master (root-commit) b3b0b3e] will copy text from videos and see if they work
+ 4 files changed, 2 insertions(+)
+ create mode 120000 .#290-w3.org
+ create mode 100644 290-w3.org
+ create mode 100644 vid1/demo.js
+ create mode 100644 vid1/index.html
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add .
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   vid1/index.html
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "added bare index.html"
+[master 4595d82] added bare index.html
+ 1 file changed, 13 insertions(+)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add .
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "added demo.js with no apparent effect."
+[master bd440c0] added demo.js with no apparent effect.
+ 1 file changed, 7 insertions(+)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls -R
+.:
+290-w3.org  vid1
+
+./vid1:
+demo.js  index.html
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add .
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "fixed typo in video resulting in undefined type error"
+[master 85aa811] fixed typo in video resulting in undefined type error
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mkdir vid2
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cp -vr vid1/ vid2/
+‘vid1/’ -> ‘vid2/vid1’
+‘vid1/index.html’ -> ‘vid2/vid1/index.html’
+‘vid1/demo.js’ -> ‘vid2/vid1/demo.js’
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mv vid2/vid1/ /vid2
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls vid2/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls -R
+.:
+290-w3.org  vid1  vid2
+
+./vid1:
+demo.js  index.html
+
+./vid2:
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cp vid1/* vid2/ -v
+‘vid1/demo.js’ -> ‘vid2/demo.js’
+‘vid1/index.html’ -> ‘vid2/index.html’
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls -R
+.:
+290-w3.org  vid1  vid2
+
+./vid1:
+demo.js  index.html
+
+./vid2:
+demo.js  index.html
 root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# 
