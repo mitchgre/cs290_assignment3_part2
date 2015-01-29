@@ -15,6 +15,10 @@ function displayResults(){
 
     var resultDiv = document.getElementById('searchResults');
     resultDiv.innerHTML='<div></div>';
+
+    // simple example to print an array
+    /*
+      // ---------------------------------
     for (var i in t){
 	var r = document.createElement('div');
 	resultDiv.appendChild(r);
@@ -25,7 +29,20 @@ function displayResults(){
 	r.style.borderWidth = "1px";
 	r.innerHTML = t[i];
 	}
-	
+	*/
+
+    var ghr = null; // github response
+    ghr = new XMLHttpRequest();
+    ghr.open("GET", "https://api.github.com/zen", false);
+    ghr.send(null);
+    // console.log(ghr.responseText);
+    resultDiv.innerHTML=(ghr.responseText);
+    
+
+    // get the whole shebang
+
+    
+
 }
 
 function clearLocalStorate(){
