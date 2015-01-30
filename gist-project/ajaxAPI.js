@@ -115,10 +115,8 @@ function loadGists() {
     var languages = getLanguages(); console.log(languages);    
     var gists = getAllGists();
     var results = parseGists(gists,languages); 
-    for (r in results)
-    	console.log(r.innerHTML);
-
-    displayResults(results);
+    console.log(results);  
+    displayResults(results); /// bomb here
 };
 
 
