@@ -82,4 +82,166 @@ demo.js  index.html
 
 ./vid2:
 demo.js  index.html
-root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# 
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add .
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   290-w3.org
+	new file:   290-w3.org~
+	new file:   vid2/demo.js
+	new file:   vid2/demo.js~
+	new file:   vid2/index.html
+	new file:   vid2/index.html~
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "added vid2 stuff.  Doesn't display local storage yet."
+[master d16a22c] added vid2 stuff.  Doesn't display local storage yet.
+ 6 files changed, 137 insertions(+)
+ create mode 100644 290-w3.org~
+ create mode 100644 vid2/demo.js
+ create mode 100644 vid2/demo.js~
+ create mode 100644 vid2/index.html
+ create mode 100644 vid2/index.html~
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git rm vid2/demo.js~
+rm 'vid2/demo.js~'
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git rm vid2/index.html~
+rm 'vid2/index.html~'
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git rm vid2/290-w3.org~
+fatal: pathspec 'vid2/290-w3.org~' did not match any files
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	deleted:    vid2/demo.js~
+	deleted:    vid2/index.html~
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "removed some emacs cruft"
+[master c25263f] removed some emacs cruft
+ 2 files changed, 21 deletions(-)
+ delete mode 100644 vid2/demo.js~
+ delete mode 100644 vid2/index.html~
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git rm 290-w3.org~
+rm '290-w3.org~'
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "removed mroe emacs cruft"
+[master 8a5c353] removed mroe emacs cruft
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 290-w3.org~
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   vid2/index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add vid2/index.html 
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "fixed unbalanced quotes. displayLocalStorage() works now"
+[master b2e32f2] fixed unbalanced quotes. displayLocalStorage() works now
+ 1 file changed, 15 insertions(+), 15 deletions(-)
+ rewrite vid2/index.html (62%)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cp -R vid2/ vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mkdir gist-project
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cd gist-project/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/gist-project# touch index.html
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/gist-project# touch ajaxAPI.js
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/gist-project# cd ..
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/
+	vid3/
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add gist-project/*
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   gist-project/ajaxAPI.js
+	new file:   gist-project/ajaxAPI.js~
+	new file:   gist-project/index.html
+	new file:   gist-project/index.html~
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	vid3/
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git rm gist-project/*~
+error: the following files have changes staged in the index:
+    gist-project/ajaxAPI.js~
+    gist-project/index.html~
+(use --cached to keep the file, or -f to force removal)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "added gist project.  Search button draws a crude table from an array. "
+[master bb94f3f] added gist project.  Search button draws a crude table from an array.
+ 4 files changed, 70 insertions(+)
+ create mode 100644 gist-project/ajaxAPI.js
+ create mode 100644 gist-project/ajaxAPI.js~
+ create mode 100644 gist-project/index.html
+ create mode 100644 gist-project/index.html~
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add gist-project/ajaxAPI.js
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Search button displays zen sayings from github."
+[master b520ae2] Search button displays zen sayings from github.
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+ls: cannot open directory .: Transport endpoint is not connected
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cd .
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  gist-project  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls -a
+.  ..  .#290-w3.org  290-w3.org  gist-project  .git  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   290-w3.org
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   290-w3.org
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	vid3/
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git
