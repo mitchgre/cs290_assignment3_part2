@@ -96,7 +96,11 @@ function displayResults(){
 	     var nestedResult = parsedResult[key];
 	     var description = getValueFromKeyInObject(nestedResult,'description');
 	     var htmlURL = getValueFromKeyInObject(nestedResult,'html_url');
-	     var link = '<a href="' + htmlURL + '">' + description + '</a>';
+	     var link; 
+	     if (description != ""){ // handle gists that have no description
+		 link = '<a href="' + htmlURL + '">' + description + '</a>'; }
+	     else{
+		 link = '<a href="' + htmlURL + '">' + 'no description' +  '</a>';  }
      	     r.innerHTML = key + " -> " + link;
      	     }
      }
