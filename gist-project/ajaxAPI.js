@@ -67,34 +67,32 @@ function getValueFromKeyInObject(theObject,theKey) {
 function parseGists(gistObject, allowedLanguages){  
     results = []; 
      for (var key in gistObject){  // gistObject is an object with an array of objects
-     	 if (gistObject.hasOwnProperty(key) ){
-     	     var r = document.createElement('div');
-     	     // resultDiv.appendChild(r); // save this for later
-     	     // resultDiv.appendChild('<div style="border:2px solid; clear:both; float:left;">'+t[i]+'<div>');
-     	     //r.style.float = 'left';
-     	     r.style.clear = 'both';
-     	     r.style.border = "solid black";
-     	     r.style.borderWidth = "1px";
-	     //var nestedResult = JSON.stringify(parsedResult[key]);
-	     var nestedResult = gistObject[key];
-	     var description = getValueFromKeyInObject(nestedResult,'description'); // get description of current object
-	     var htmlURL = getValueFromKeyInObject(nestedResult,'html_url');  // get URL of current object
-	     var thisLanguage = getValueFromKeyInObject(nestedResult,'language');  // get URL of current object
-	     var link; 
-	     if (description != ""){ // handle gists that have no description
-		 link = '<a href="' + htmlURL + '">' + description + '</a>' + ' '  + thisLanguage; }
-	     else{
-		 link = '<a href="' + htmlURL + '">' + 'no description' +  '</a>' + ' '  + thisLanguage;  }
-     	     r.innerHTML = key + " -> " + link;
-	     // if (allowedLanguages.indexOf(thisLanguage) > -1){ // if this language is in the array of allowed languages
-	     // 	 console.log("YEAH!!! GET SOME!!!!");
-	     // 	 results.push(r);
-     	     // }
-	     // else{ 
-	     // 	 console.log("NAH I DON'T THINK SO!!!");
-	     // 	 }
-	     results.push(r);
-	 } // end if
+     	 var r = document.createElement('div');
+     	 // resultDiv.appendChild(r); // save this for later
+     	 // resultDiv.appendChild('<div style="border:2px solid; clear:both; float:left;">'+t[i]+'<div>');
+     	 //r.style.float = 'left';
+     	 r.style.clear = 'both';
+     	 r.style.border = "solid black";
+     	 r.style.borderWidth = "1px";
+	 //var nestedResult = JSON.stringify(parsedResult[key]);
+	 var nestedResult = gistObject[key];
+	 var description = getValueFromKeyInObject(nestedResult,'description'); // get description of current object
+	 var htmlURL = getValueFromKeyInObject(nestedResult,'html_url');  // get URL of current object
+	 var thisLanguage = getValueFromKeyInObject(nestedResult,'language');  // get URL of current object
+	 var link; 
+	 if (description != ""){ // handle gists that have no description
+	     link = '<a href="' + htmlURL + '">' + description + '</a>' + ' '  + thisLanguage; }
+	 else{
+	     link = '<a href="' + htmlURL + '">' + 'no description' +  '</a>' + ' '  + thisLanguage;  }
+     	 r.innerHTML = key + " -> " + link;
+	 // if (allowedLanguages.indexOf(thisLanguage) > -1){ // if this language is in the array of allowed languages
+	 // 	 console.log("YEAH!!! GET SOME!!!!");
+	 // 	 results.push(r);
+     	 // }
+	 // else{ 
+	 // 	 console.log("NAH I DON'T THINK SO!!!");
+	 // 	 }
+	 results.push(r);
      } // end for loop
 
     return results; // an array of divs containing linked descriptions to gists filtered by allowed languages
