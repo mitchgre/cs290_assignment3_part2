@@ -105,8 +105,8 @@ function displayResults(formattedResults){
     var resultDiv = document.getElementById('searchResults');
     resultDiv.innerHTML='<div></div>';
 
-    for (r in formattedResults)
-	resultDiv.appendChild(r); 
+    for (var r = 0; r < formattedResults.length; r++)
+	resultDiv.appendChild(results[r]); 
 
 }
 
@@ -114,8 +114,11 @@ function displayResults(formattedResults){
 function loadGists() {
     var languages = getLanguages(); console.log(languages);    
     var gists = getAllGists();
+    console.log(gists);
     var results = parseGists(gists,languages); 
     console.log(results);  
+    for (var r = 0; r < results.length; r++)
+	console.log(results[r]);
     displayResults(results); /// bomb here
 };
 
