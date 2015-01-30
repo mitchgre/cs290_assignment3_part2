@@ -7,21 +7,21 @@
 
     <div id='title'>title</div>
     <div>
-      <form>
+      <form id="searchParameters">
 	
 	<div id="searchContainer">
 	  <div>
 	    <input type="text" id="searchBox">
 	  </div>
-	  <input type="button" name="search" value="Search" onClick="displayResults()">
+	  <input type="button" name="search" value="Search" onClick="loadGists()">
 	</div>
 	<div id="languageBoxes">
 	  <div>Filter By Language</div>
-	  <ul>
-	    <li><input type="checkbox" id="Python">Python</li>
-	    <li><input type="checkbox" id="JSON">JSON</li>
-	    <li><input type="checkbox" id="JavaScript">JavaScript</li>
-	    <li><input type="checkbox" id="SQL">SQL</li>
+	  <ul id="languageList">
+	    <li><input type="checkbox" name="languages" id="Python">Python</li>
+	    <li><input type="checkbox" name="languages" id="JSON">JSON</li>
+	    <li><input type="checkbox" name="languages" id="JavaScript">JavaScript</li>
+	    <li><input type="checkbox" name="languages" id="SQL">SQL</li>
 	  </ul>
 	</div>
 	<div id="numOfPages">

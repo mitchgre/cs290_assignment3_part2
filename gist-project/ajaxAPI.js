@@ -4,8 +4,21 @@ window.onload = function() {
 };
 
 function loadGists() {
-    var resultsJSON = 0;
-    
+    //var possibleLanguages = ["Python","JSON","Javascript","SQL"];
+
+    // get languages from checkboxes
+    var languages = document.getElementsByName('languages');
+    var selectedLanguages = [];
+    // for (l in possibleLanguages){
+    for (l in languages){
+	// var checkedFlag = document.getElementById(l).checked;
+	//var checkedFlag = l.checked;
+	//if (l && checkedFlag != null)
+	//if (!checkedFlag)
+	//   selectedLanguages.push(l.id);
+	console.log(l.id);
+    }
+    // console.log(selectedLanguages);
     
 };
 
@@ -86,7 +99,7 @@ function displayResults(){
      for (var key in parsedResult){  // parsedResult is an object with an array of objects
      	 if (parsedResult.hasOwnProperty(key) ){
      	     var r = document.createElement('div');
-     	     resultDiv.appendChild(r);
+     	     // resultDiv.appendChild(r); // save this for later
      	     // resultDiv.appendChild('<div style="border:2px solid; clear:both; float:left;">'+t[i]+'<div>');
      	     //r.style.float = 'left';
      	     r.style.clear = 'both';
@@ -102,6 +115,7 @@ function displayResults(){
 	     else{
 		 link = '<a href="' + htmlURL + '">' + 'no description' +  '</a>';  }
      	     r.innerHTML = key + " -> " + link;
+	     results.push(r);
      	     }
      }
 
