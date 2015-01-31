@@ -26,7 +26,7 @@ function getLanguages(){
 function getAllGists(){
     var ghr = null; // github response
     ghr = new XMLHttpRequest();
-    ghr.open("GET", "https://api.github.com/gists/public", false);
+    ghr.open("GET", "https://api.github.com/gists/public?per_page=100", false);
     ghr.send(null); // get back a string of json
 
     var parsedResult = JSON.parse(ghr.responseText); // turn string into json object
