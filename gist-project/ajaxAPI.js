@@ -25,42 +25,39 @@ function getLanguages(){
 // get all recent gists
 function getAllGists(numOfPages){
     clearResults();
-    var pages = [];
+    var pages = new Array();
+    var request = new Array();
+    var parsedResult = new Array();
+    var htmlElements = new Array();
     var languages = getLanguages();
 
-    for (var i=1; i <= numOfPages; i++)
-    {
-	// This is the actual AJAX stuff here.  See docs at:
-	// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
-
-	var ghr = null; // github response
-	ghr = new XMLHttpRequest();
-	
-	ghr.open("GET", "https://api.github.com/gists/public?per_page=100&page=" + i, true);
-
-	function parseGistsCallback(e){ 
-	    console.log("ghr:" + ghr.readyState);
-	    console.log("page length = " + pages.length);
-	    if (ghr.readyState == 4) {
-		console.log("got server response for page " + i);
-		var parsedResult = JSON.parse(ghr.responseText); 
-		pages.push(parsedResult); 
-		console.log("page length = " + pages.length);
-		if (pages.length >= 1){
-		    console.log("getting results");
-		    var results = parseGists(pages,languages,i);
-		    displayResults(results);
-		}
-		    
-		// return pages;
-	    }
-	}
-
-
-	ghr.send(null); // get back a string of json
-	ghr.onreadystatechange = parseGistsCallback; // note there is no () on the function
-
-    }
+    // http://stackoverflow.com/questions/13445809/how-to-handle-simultaneous-javascript-xmlhttprequests
+    for (var i=1; i <= numOfPages; i++) {
+	(function(i) 
+	 {
+	     request[i] = new XMLHttpRequest();
+	     request[i].open("GET", "https://api.github.com/gists/public?per_page=100&page="+i , true);
+	     request[i].onreadystatechange = function (e) 
+	     {
+		 if (request[i].readyState === 4) 
+		 {
+		     if (request[i].status === 200) 
+		     {
+			 // console.log(request[i].responseText);
+			 parsedResult[i] = JSON.parse(request[i].responseText);
+			 // pages.push(parsedResult);
+			 htmlElements[i] = parseGists(parsedResult[i],languages,i);
+			 displayResults(htmlElements[i]);
+		     } 
+		     else 
+		     {
+			 console.log("Error", request[i].statusText);
+		     }
+		 }
+	     };
+	     request[i].send(null);
+	})(i);
+    } 
     // return parsedResult;
 
 
@@ -88,20 +85,22 @@ function displayResults(formattedResults){
    gistObjectArray is an array of objects, 
    allowedLanguages is an array of strings
 */
-function parseGists(gistObjectArray, allowedLanguages, pageNumber){  
+function parseGists(gistObject, allowedLanguages, pageNumber){  
     results = []; 
-    for (var j=0; j < gistObjectArray.length; j++){
+    // console.log("gistObjectArray.length=");
+    // console.log(gistObjectArray.length);
+    // for (var j=0; j < gistObjectArray.length; j++){
 
 	// Make A Note of the Page We're On
 	var pageHeader = document.createElement('li');
-	pageHeader.innerHTML = "<b>page" + (pageNumber+1)  + "</b>";
+	pageHeader.innerHTML = "<b>page" + (pageNumber)  + "</b>";
 	results.push(pageHeader);
 
 	// loop over object and push results into array
-	for (var i in gistObjectArray[j]){  // gistObject is an object with an array of objects
+    for (var i in gistObject){  // gistObject is an object with an array of objects
      	    var r = document.createElement('li');
      	    r.style.clear = 'both';
-	    var nestedResult = gistObjectArray[j][i]; console.log(nestedResult);
+	    var nestedResult = gistObject[i]; //console.log(nestedResult);
 	    var description = nestedResult['description']; // get description of current object
 	    var htmlURL = nestedResult['html_url'];  // get URL of current object
 	    var theseFiles = nestedResult['files'];  // object of files
@@ -123,7 +122,7 @@ function parseGists(gistObjectArray, allowedLanguages, pageNumber){
 	    }
 	    // results.push(r);
 	} // end for loop over gistObject
-    } // end for loop over gistObjectArray
+    //} // end for loop over gistObjectArray
 
     return results; // an array of divs containing linked descriptions to gists filtered by allowed languages
 }
