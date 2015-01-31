@@ -104,6 +104,7 @@ function parseGists(gistObject, allowedLanguages){
 function displayResults(formattedResults){
 
     var resultList = document.getElementById('searchResultsUL');
+    resultList.innerHTML="";
 
     for (var r = 0; r < formattedResults.length; r++)
 	resultList.appendChild(results[r]); 
@@ -113,10 +114,8 @@ function displayResults(formattedResults){
 
 function loadGists() {
     var languages = getLanguages(); console.log(languages);    
-    var gists = getAllGists();
-    console.log(gists);
-    var results = parseGists(gists,languages); 
-    console.log(results);  
+    var gists = getAllGists();     console.log(gists);
+    var results = parseGists(gists,languages);   console.log(results);  
     for (var r = 0; r < results.length; r++)
 	console.log(results[r]);
     displayResults(results); /// bomb here
