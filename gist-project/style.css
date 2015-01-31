@@ -1,0 +1,13 @@
+
+div {
+    //clear:both;
+    float:left;
+}
+
+li {
+    list-style-type:none;
+}
+
+#languageBoxes, #searchBox{
+    float:left;
+}

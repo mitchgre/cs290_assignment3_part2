@@ -76,23 +76,26 @@ function parseGists(gistObject, allowedLanguages){
      	 r.style.borderWidth = "1px";
 	 //var nestedResult = JSON.stringify(parsedResult[key]);
 	 var nestedResult = gistObject[key];
-	 var description = getValueFromKeyInObject(nestedResult,'description'); // get description of current object
-	 var htmlURL = getValueFromKeyInObject(nestedResult,'html_url');  // get URL of current object
-	 var thisLanguage = getValueFromKeyInObject(nestedResult,'language');  // get URL of current object
-	 var link; 
+	 var description = nestedResult['description']; // get description of current object
+	 var htmlURL = nestedResult['html_url'];  // get URL of current object
+	 var theseFiles = nestedResult['files'];  // object of files
+	 var theseKeys = Object.keys(theseFiles); // array of keys to theseFiles
+	 var thisFile = theseFiles[theseKeys[0]]; // value of first key in theseFiles
+	 var thisLanguage = thisFile['language']; // language of gist is a property of thisFile... whew! do you get it?
+	 var link;  // fill this in below. 
 	 if (description != ""){ // handle gists that have no description
 	     link = '<a href="' + htmlURL + '">' + description + '</a>' + ' '  + thisLanguage; }
 	 else{
 	     link = '<a href="' + htmlURL + '">' + 'no description' +  '</a>' + ' '  + thisLanguage;  }
      	 r.innerHTML = key + " -> " + link;
-	 // if (allowedLanguages.indexOf(thisLanguage) > -1){ // if this language is in the array of allowed languages
-	 // 	 console.log("YEAH!!! GET SOME!!!!");
-	 // 	 results.push(r);
-     	 // }
-	 // else{ 
-	 // 	 console.log("NAH I DON'T THINK SO!!!");
-	 // 	 }
-	 results.push(r);
+	  if (allowedLanguages.indexOf(thisLanguage) > -1){ // if this language is in the array of allowed languages
+	 	 console.log("YEAH!!! GET SOME!!!!");
+	 	 results.push(r);
+     	  }
+	 else{ 
+	 	 console.log("NAH I DON'T THINK SO!!!");
+	 }
+	 // results.push(r);
      } // end for loop
 
     return results; // an array of divs containing linked descriptions to gists filtered by allowed languages
