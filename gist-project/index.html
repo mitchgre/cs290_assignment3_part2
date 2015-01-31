@@ -8,13 +8,6 @@
     <div id='title'>title</div>
     <div>
       <form id="searchParameters">
-	
-	<div id="searchContainer">
-	  <div>
-	    <input type="text" id="searchBox">
-	  </div>
-	  <input type="button" name="search" value="Search" onClick="loadGists()">
-	</div>
 	<div id="languageBoxes">
 	  <div>Filter By Language</div>
 	  <ul id="languageList">
@@ -25,20 +18,25 @@
 	  </ul>
 	</div>
 	<div id="numOfPages">
-	  <div> Number of Results </div>
+	  <div> Number of Pages </div>
 	  <select> <!-- Filter Number of Pages -->
-	    <option value="1">30</option>
-	    <option value="2">60</option>
-	    <option value="3">90</option>
-	    <option value="4">120</option>
-	    <option value="5">150</option>
+	    <option value="1">1</option>
+	    <option value="2">2</option>
+	    <option value="3">3</option>
+	    <option value="4">4</option>
+	    <option value="5">5</option>
 	  </select>
+	<div id="searchContainer">
+	  <input type="button" name="search" value="Search" onClick="loadGists()">
+	</div>
 	</div>
 	
       </form>
     </div>
     
-    <div id="searchResults">
+    <div id="searchResultsDiv">
+      <ul id="searchResultsUL">
+      </ul>
     </div>
   </body>
 </html>

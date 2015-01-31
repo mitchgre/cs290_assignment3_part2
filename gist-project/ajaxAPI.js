@@ -67,13 +67,13 @@ function getValueFromKeyInObject(theObject,theKey) {
 function parseGists(gistObject, allowedLanguages){  
     results = []; 
      for (var key in gistObject){  // gistObject is an object with an array of objects
-     	 var r = document.createElement('div');
+     	 var r = document.createElement('li');
      	 // resultDiv.appendChild(r); // save this for later
      	 // resultDiv.appendChild('<div style="border:2px solid; clear:both; float:left;">'+t[i]+'<div>');
      	 //r.style.float = 'left';
      	 r.style.clear = 'both';
-     	 r.style.border = "solid black";
-     	 r.style.borderWidth = "1px";
+     	 //r.style.border = "solid black";
+     	 //r.style.borderWidth = "1px";
 	 //var nestedResult = JSON.stringify(parsedResult[key]);
 	 var nestedResult = gistObject[key];
 	 var description = nestedResult['description']; // get description of current object
@@ -103,11 +103,10 @@ function parseGists(gistObject, allowedLanguages){
 
 function displayResults(formattedResults){
 
-    var resultDiv = document.getElementById('searchResults');
-    resultDiv.innerHTML='<div></div>';
+    var resultList = document.getElementById('searchResultsUL');
 
     for (var r = 0; r < formattedResults.length; r++)
-	resultDiv.appendChild(results[r]); 
+	resultList.appendChild(results[r]); 
 
 }
 
@@ -124,12 +123,3 @@ function loadGists() {
 };
 
 
-
-function clearLocalStorate(){
-    localStorage.clear();
-}
-
-
-function displayLocalStorage() {
-    document.getElementById('output').innerHTML = localStorage.getItem('demoText');
-}
