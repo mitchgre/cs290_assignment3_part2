@@ -78,10 +78,14 @@ function displayFavorites(){
     for (var i=0; i < favorites.length; i++)
 	{
 	    var r = document.createElement('li');
-	    //r.style.clear = 'both';
-	    r.innerHTML = "<input type=\"button\" value=\"Remove\" onClick=\"RemoveFromFavorites(this)\">";
-	    r.innerHTML += favorites[i];
-	    console.log(r);
+	    // Add a 'remove' button to each element
+
+	    r.style.clear = "both";
+	    r.innerHTML = "<div><b>"+ i +".</b></div>";
+	    r.innerHTML += "<div><input type=\"button\" value=\"Remove\" onClick=\"RemoveFromFavorites(this)\"></div>";
+	    r.innerHTML += "<div>"+favorites[i]+"</div>";
+
+	    // console.log(r);
 	    formattedFavorites.push(r);
 	}
     displayResults(formattedFavorites,'searchResultsUL');
@@ -89,7 +93,18 @@ function displayFavorites(){
 
 
 function RemoveFromFavorites(element){
+    // parent then next gives the link, but we want to remove the parent.
+    var favorites = setupFavorites();   // get from localStorage
+    // actually, I think we want to get the array, remove the element from the array and redisplay
+    // unfortunately, that's way less efficient, so I'm storing the array index in HTML as the first child
     
+    // get index number from DOM, and slice off the last char which is a period
+    var index = element.parentNode.previousSibling.innerText.slice(0,-1); 
+    // console.log("Remove element " + index);
+    favorites.splice(index,1); // remove 1 element from favorites at position index
+    localStorage.setItem("favoritesList", JSON.stringify(favorites)); // set in localStorage
+    console.log(favorites.length);
+    displayFavorites();
 }
 
 
