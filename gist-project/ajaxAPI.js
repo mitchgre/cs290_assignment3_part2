@@ -23,8 +23,9 @@ function getLanguages(){
 
 
 // get all recent gists
-function getAllGists(numOfPages){
+function loadGists(){
     clearResults();
+    var numOfPages = document.getElementById('numOfPagesSelection').value; console.log("numOfPages="+numOfPages); // int
     var pages = new Array();
     var request = new Array();
     var parsedResult = new Array();
@@ -91,51 +92,56 @@ function parseGists(gistObject, allowedLanguages, pageNumber){
     // console.log(gistObjectArray.length);
     // for (var j=0; j < gistObjectArray.length; j++){
 
-	// Make A Note of the Page We're On
-	var pageHeader = document.createElement('li');
-	pageHeader.innerHTML = "<b>page" + (pageNumber)  + "</b>";
-	results.push(pageHeader);
+    // Make A Note of the Page We're On
+    var pageHeader = document.createElement('li');
+    pageHeader.innerHTML = "<b>page" + (pageNumber)  + "</b>";
+    results.push(pageHeader);
+    
+    // loop over object and push results into array
+    for (var i in gistObject)
+    {  // gistObject is an object with an array of objects
+     	var r = document.createElement('li');
+     	r.style.clear = 'both';
+	var nestedResult = gistObject[i]; //console.log(nestedResult);
+	var description = nestedResult['description']; // get description of current object
+	var htmlURL = nestedResult['html_url'];  // get URL of current object
+	var theseFiles = nestedResult['files'];  // object of files
+	var theseKeys = Object.keys(theseFiles); // array of keys to theseFiles
+	var thisFile = theseFiles[theseKeys[0]]; // value of first key in theseFiles
+	var thisLanguage = thisFile['language']; // language of gist is a property of thisFile... whew! do you get it?
+	var link;  // fill this in below. 
 
-	// loop over object and push results into array
-    for (var i in gistObject){  // gistObject is an object with an array of objects
-     	    var r = document.createElement('li');
-     	    r.style.clear = 'both';
-	    var nestedResult = gistObject[i]; //console.log(nestedResult);
-	    var description = nestedResult['description']; // get description of current object
-	    var htmlURL = nestedResult['html_url'];  // get URL of current object
-	    var theseFiles = nestedResult['files'];  // object of files
-	    var theseKeys = Object.keys(theseFiles); // array of keys to theseFiles
-	    var thisFile = theseFiles[theseKeys[0]]; // value of first key in theseFiles
-	    var thisLanguage = thisFile['language']; // language of gist is a property of thisFile... whew! do you get it?
-	    var link;  // fill this in below. 
-	    if (description != ""){ // handle gists that have no description
-		link = '<a href="' + htmlURL + '">' + description + '</a>' + ' '  + thisLanguage; }
-	    else{
-		link = '<a href="' + htmlURL + '">' + 'no description' +  '</a>' + ' '  + thisLanguage;  }
-     	    r.innerHTML = i + " -> " + link;
-	    if (allowedLanguages.indexOf(thisLanguage) > -1){ // if this language is in the array of allowed languages
-	 	console.log("item " + i + " accepted language " + thisLanguage );
-	 	results.push(r);
+	if (description != "")
+	{ // handle gists that have no description
+	    link = '<a href="' + htmlURL + '">' + description + '</a>' + ' '  + thisLanguage; }
+	else
+	{
+	    link = '<a href="' + htmlURL + '">' + 'no description' +  '</a>' + ' '  + thisLanguage;  
+	}
+     	r.innerHTML = i + " -> " + link;
+	
+	if (allowedLanguages.length == 0) // no filtering
+	{
+	    results.push(r);
+	}
+	else
+	{
+	    if (allowedLanguages.indexOf(thisLanguage) > -1)
+	    { // if this language is in the array of allowed languages
+		console.log("item " + i + " accepted language " + thisLanguage );
+		results.push(r);
      	    }
-	    else{ 
-	 	console.log("item " + i + " filtered language " + thisLanguage  );
+	    else
+	    { 
+		console.log("item " + i + " filtered language " + thisLanguage  );
 	    }
 	    // results.push(r);
-	} // end for loop over gistObject
+	}
+    } // end for loop over gistObject
     //} // end for loop over gistObjectArray
 
     return results; // an array of divs containing linked descriptions to gists filtered by allowed languages
 }
 
-
-function loadGists() {
-    // var languages = getLanguages(); console.log(languages); // array of strings
-    var numOfPages = document.getElementById('numOfPagesSelection').value; console.log("numOfPages="+numOfPages); // int
-    getAllGists(numOfPages); //    console.log(gists); // array of objects
-    //var results = parseGists(gists,languages);   console.log(results);  // array of html elements (li currently)
-    // for (var r = 0; r < results.length; r++)
-    // 	console.log(results[r]);
-    // displayResults(results); // render array of html results to screen
-};
 
 
