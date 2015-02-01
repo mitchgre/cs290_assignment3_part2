@@ -2,6 +2,7 @@ window.onload = function() {
     document.getElementById('title').innerHTML = 
 	"<h1>Search Gists</h1>";
     setupFavorites();
+    displayFavorites();
 };
 
 
