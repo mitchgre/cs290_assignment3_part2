@@ -1,6 +1,7 @@
 window.onload = function() {
     document.getElementById('title').innerHTML = 
 	"<h1>Search Gists</h1>";
+    setupFavorites();
 };
 
 
@@ -22,9 +23,75 @@ function getLanguages(){
 }
 
 
+/*
+  Manipulate list of favorites in local storage.
+  
+  (browse-url "https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage")
+
+  For array storage/retrieval, I'm trying a different syntax: 
+  (browse-url "http://stackoverflow.com/questions/22991871/localstorage-save-array")
+
+*/
+function setupFavorites(element){  // take a DOM element on call
+    var favorites;
+    if (localStorage.getItem("favoritesList") === null)
+    {
+	favorites = new Array();
+	localStorage["favoritesList"] = JSON.stringify(favorites);
+    }
+    else
+    {
+	favorites = JSON.parse(localStorage["favoritesList"]);
+    }
+    //console.log(element);
+}
+
+function addToFavorites(element){  // take a DOM element on call
+    var favorites;
+    if (localStorage.getItem("favoritesList") === null)
+    {
+	favorites = new Array();
+	localStorage["favoritesList"] = JSON.stringify(favorites); // set in localStorage
+    }
+    else
+    {
+	favorites = JSON.parse(localStorage["favoritesList"]);  // get from localStorage
+    }
+    // favorites.push(element);
+    console.log(element.parentNode.parentNode.childNodes[2]);
+    console.log(element.parentNode.parentNode.childNodes[2].innerHTML);
+    favorites.push(element.parentNode.parentNode.childNodes[2].innerHTML);
+    localStorage.setItem("favoritesList", JSON.stringify(favorites)); // set in localStorage
+}
+
+
+function displayFavorites(){
+    var favorites;
+    var formattedFavorites = new Array();
+    clearResults('searchResultsUL');
+    if (localStorage.getItem("favoritesList") === null)
+    {
+	favorites = new Array();
+	localStorage["favoritesList"] = JSON.stringify(favorites); // set in localStorage
+    }
+    else
+    {
+	favorites = JSON.parse(localStorage["favoritesList"]);  // get from localStorage
+    }    
+    for (var i=0; i < favorites.length; i++)
+	{
+	    var r = document.createElement('li');
+	    //r.style.clear = 'both';
+	    r.innerHTML = favorites[i];
+	    console.log(r);
+	    formattedFavorites.push(r);
+	}
+    displayResults(formattedFavorites,'searchResultsUL');
+}
+
 // get all recent gists
 function loadGists(){
-    clearResults();
+    clearResults('searchResultsUL');
     var numOfPages = document.getElementById('numOfPagesSelection').value; console.log("numOfPages="+numOfPages); // int
     var pages = new Array();
     var request = new Array();
@@ -48,7 +115,7 @@ function loadGists(){
 			 parsedResult[i] = JSON.parse(request[i].responseText);
 			 // pages.push(parsedResult);
 			 htmlElements[i] = parseGists(parsedResult[i],languages,i);
-			 displayResults(htmlElements[i]);
+			 displayResults(htmlElements[i],'searchResultsUL');
 		     } 
 		     else 
 		     {
@@ -65,14 +132,14 @@ function loadGists(){
     console.log("I'm done with gists");
 }
 
-function clearResults(){
-    var resultList = document.getElementById('searchResultsUL');
+function clearResults(divID){
+    var resultList = document.getElementById(divID);
     resultList.innerHTML="";  // clear the list if it's not already cleared
 }
 
-function displayResults(formattedResults){
+function displayResults(formattedResults,divID){
 
-    var resultList = document.getElementById('searchResultsUL');
+    var resultList = document.getElementById(divID);
 
     for (var r = 0; r < formattedResults.length; r++)
 	resultList.appendChild(formattedResults[r]); 
@@ -109,14 +176,18 @@ function parseGists(gistObject, allowedLanguages, pageNumber){
 	var theseKeys = Object.keys(theseFiles); // array of keys to theseFiles
 	var thisFile = theseFiles[theseKeys[0]]; // value of first key in theseFiles
 	var thisLanguage = thisFile['language']; // language of gist is a property of thisFile... whew! do you get it?
+	
+	var favAddLink = "<div><input type=\"button\" value=\"AddToFavorites\" onClick=\"addToFavorites(this)\"></div>";
+
 	var link;  // fill this in below. 
 
 	if (description != "")
 	{ // handle gists that have no description
-	    link = '<a href="' + htmlURL + '">' + description + '</a>' + ' '  + thisLanguage; }
+	    link = favAddLink + '<div><a href="' + htmlURL + '">' + description + '</a>' + '</div> '  + thisLanguage  ; 
+	}
 	else
 	{
-	    link = '<a href="' + htmlURL + '">' + 'no description' +  '</a>' + ' '  + thisLanguage;  
+	    link = favAddLink + '<div><a href="' + htmlURL + '">' + 'no description' +  '</a>' + '</div> '  + thisLanguage;  
 	}
      	r.innerHTML = i + " -> " + link;
 	
