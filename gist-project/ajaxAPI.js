@@ -100,8 +100,9 @@ function RemoveFromFavorites(element){
     // unfortunately, that's way less efficient, so I'm storing the array index in HTML as the first child
     
     // get index number from DOM, and slice off the last char which is a period
-    var index = element.parentNode.previousSibling.innerText.slice(0,-1); 
-    // console.log("Remove element " + index);
+    var index = element.parentNode.previousSibling.firstChild.innerHTML.slice(0,-1); 
+    var value = element.parentNode.nextSibling.innerHTML; 
+    console.log("Remove element " + index + "with value:" +value);
     favorites.splice(index,1); // remove 1 element from favorites at position index
     localStorage.setItem("favoritesList", JSON.stringify(favorites)); // set in localStorage
     console.log(favorites.length);

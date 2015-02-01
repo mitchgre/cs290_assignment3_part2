@@ -867,4 +867,214 @@ root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiment
 root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Wired up the remove buttons in the favorites list.  Now I want to display both search results and favorites in the same window. "
 [master 433ec13] Wired up the remove buttons in the favorites list.  Now I want to display both search results and favorites in the same window.
  2 files changed, 23 insertions(+), 8 deletions(-)
-root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# 
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# sshfs -o nonempty mitchgre@access.engr.oregonstate.edu:/ /osu/
+mitchgre@access.engr.oregonstate.edu's password: 
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  gist-project  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cd /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls
+week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls -a
+.  ..  week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2#
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# cd week3/
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls
+290-w3.org  gist-project  vid1  vid2
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls -a
+.  ..  .#290-w3.org  290-w3.org  gist-project  .git  vid1  vid2
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# git pull
+remote: Counting objects: 31, done.        
+remote: Compressing objects: 100% (27/27), done.        
+remote: Total 27 (delta 17), reused 0 (delta 0)        
+Unpacking objects: 100% (27/27), done.
+From /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3
+   b8c39ea..433ec13  master     -> origin/master
+Updating b8c39ea..433ec13
+Fast-forward
+ gist-project/ajaxAPI.js | 252 ++++++++++++++++++++++++++++++++++++++++++++++++++++++------------------
+ gist-project/index.html |  22 ++++---
+ 2 files changed, 202 insertions(+), 72 deletions(-)
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# cd ../
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls
+week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls -l
+total 4
+drwxr-xr-x 1 56692 20046 1024 Jan 31 04:11 week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls -l week3/
+total 28
+-rw-r----- 1 56692 20046 12313 Jan 31 04:11 290-w3.org
+drwxr-xr-x 1 56692 20046  1024 Jan 31 23:25 gist-project
+drwxr-xr-x 1 56692 20046  1024 Jan 31 04:11 vid1
+drwxr-xr-x 1 56692 20046  1024 Jan 31 04:11 vid2
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls -l week3/gist-project/
+total 16
+-rw-r----- 1 56692 20046 7843 Jan 31 23:25 ajaxAPI.js
+-rw-r----- 1 56692 20046    0 Jan 31 04:11 ajaxAPI.js~
+-rw-r----- 1 56692 20046 1254 Jan 31 23:25 index.html
+-rw-r----- 1 56692 20046    0 Jan 31 04:11 index.html~
+-rw-r----- 1 56692 20046  123 Jan 31 04:11 style.css
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# chmod 0775 week3/gist-project/*
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# git status
+fatal: Not a git repository (or any parent up to mount point /osu)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# pushd /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/
+/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  gist-project  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   290-w3.org
+	modified:   gist-project/ajaxAPI.js
+	modified:   gist-project/index.html
+	modified:   gist-project/style.css
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/.#index.html
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Fumbled with CSS a litle"
+[master df1cea9] Fumbled with CSS a litle
+ 4 files changed, 670 insertions(+), 9 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# popd
+/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# git pull
+fatal: Not a git repository (or any parent up to mount point /osu)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls
+week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# cd week3/
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# git pull
+remote: Counting objects: 13, done.        
+remote: Compressing objects: 100% (7/7), done.        
+remote: Total 7 (delta 2), reused 0 (delta 0)        
+Unpacking objects: 100% (7/7), done.
+From /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3
+   433ec13..df1cea9  master     -> origin/master
+Updating 433ec13..df1cea9
+error: Your local changes to the following files would be overwritten by merge:
+	gist-project/ajaxAPI.js
+	gist-project/index.html
+	gist-project/style.css
+Please, commit your changes or stash them before you can merge.
+Aborting
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# git stash
+Saved working directory and index state WIP on master: 433ec13 Wired up the remove buttons in the favorites list.  Now I want to display both search results and favorites in the same window.
+Checking out files: 100% (5/5), done.
+HEAD is now at 433ec13 Wired up the remove buttons in the favorites list.  Now I want to display both search results and favorites in the same window.
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# git pull
+
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# 
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls
+ls: cannot open directory .: Transport endpoint is not connected
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# sshfs -o nonempty mitchgre@access.engr.oregonstate.edu:/ /osu/
+fuse: bad mount point `/osu/': Transport endpoint is not connected
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# sshfs -o nonempty mitchgre@access.engr.oregonstate.edu:/ /osu/
+fuse: bad mount point `/osu/': Transport endpoint is not connected
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# cd -
+bash: cd: /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2: Transport endpoint is not connected
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# popd
+bash: popd: directory stack empty
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# pushd /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/
+/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# umount /osu/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# umount /osu/
+umount: /osu/: not mounted
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# sshfs -o nonempty mitchgre@access.engr.oregonstate.edu:/ /osu/
+mitchgre@access.engr.oregonstate.edu's password: 
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# pushd /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/
+/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git pull
+fatal: No remote repository specified.  Please, specify either a URL or a
+remote name from which new revisions should be fetched.
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cd /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3/
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# git pull
+Updating 433ec13..df1cea9
+Checking out files: 100% (4/4), done.
+Fast-forward
+ 290-w3.org              | 625 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ gist-project/ajaxAPI.js |   7 +-
+ gist-project/index.html |  17 +-
+ gist-project/style.css  |  30 +++-
+ 4 files changed, 670 insertions(+), 9 deletions(-)
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# chmod -r 0775 ./*
+chmod: cannot access ‘0775’: Transport endpoint is not connected
+chmod: cannot access ‘./*’: Transport endpoint is not connected
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# umount /osu/
+umount: /osu: device is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# popd
+/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# umount /osu/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# umount /osu/
+umount: /osu/: not mounted
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# sshfs -o nonempty mitchgre@access.engr.oregonstate.edu:/ /osu/
+mitchgre@access.engr.oregonstate.edu's password: 
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# pushd /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/
+/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# popd
+/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# popd
+/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# chmod -r 0775 ./*
+chmod: cannot access ‘0775’: No such file or directory
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# chmod 0775 -r  ./*
+chmod: cannot access ‘0775’: No such file or directory
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# chmod 0775  ./*  -r
+chmod: cannot access ‘0775’: No such file or directory
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls -l
+total 56
+--w------- 1 56692 20046 43187 Jan 31 23:51 290-w3.org
+d-wx--x--x 1 56692 20046  1024 Jan 31 23:51 gist-project
+d-wx--x--x 1 56692 20046  1024 Jan 31 04:11 vid1
+d-wx--x--x 1 56692 20046  1024 Jan 31 04:11 vid2
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls -l gist-project/
+ls: reading directory gist-project/: Permission denied
+total 0
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls vid1/
+ls: reading directory vid1/: Permission denied
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls
+290-w3.org  gist-project  vid1  vid2
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# rm -fr ./*
+rm: cannot remove ‘./gist-project’: Directory not empty
+rm: cannot remove ‘./vid1’: Directory not empty
+rm: cannot remove ‘./vid2’: Directory not empty
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# rmdir gist-project/
+rmdir: failed to remove ‘gist-project/’: Directory not empty
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# cd ..
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# mv week3/ week3-broken
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls
+week3-broken
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# git clone /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/
+Cloning into 'week3'...
+rmdir: failed to remove ‘gist-project/’: Directory not empty  C-c C-c  C-c C-c
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls
+week3  week3-broken
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# rmdir week3
+rmdir: failed to remove ‘week3’: Directory not empty
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# rm -fr week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls
+week3-broken
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# popd
+bash: popd: directory stack empty
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# pushd /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/
+/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3 /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  gist-project  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git remote add origin https://github.com/mitchgre/cs290_assignment3_part2.git
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git push -u origin master
+Username for 'https://github.com': mitchgre
+Password for 'https://mitchgre@github.com': 
+
+Counting objects: 136, done.
+Delta compression using up to 4 threads.
