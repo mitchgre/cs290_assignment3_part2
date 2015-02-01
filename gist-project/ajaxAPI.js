@@ -32,7 +32,7 @@ function getLanguages(){
   (browse-url "http://stackoverflow.com/questions/22991871/localstorage-save-array")
 
 */
-function setupFavorites(element){  // take a DOM element on call
+function setupFavorites(){  // take a DOM element on call
     var favorites;
     if (localStorage.getItem("favoritesList") === null)
     {
@@ -43,51 +43,55 @@ function setupFavorites(element){  // take a DOM element on call
     {
 	favorites = JSON.parse(localStorage["favoritesList"]);
     }
-    //console.log(element);
+    return favorites;
 }
 
+
+/*
+  Called from a button press, addToFavorites() 
+           1. takes the node that pressed the button,
+	   2. finds the grandparent of the button  (should be a li in the ul 'searchResultsUL')
+	   3. stores the 
+*/
 function addToFavorites(element){  // take a DOM element on call
-    var favorites;
-    if (localStorage.getItem("favoritesList") === null)
-    {
-	favorites = new Array();
-	localStorage["favoritesList"] = JSON.stringify(favorites); // set in localStorage
-    }
-    else
-    {
-	favorites = JSON.parse(localStorage["favoritesList"]);  // get from localStorage
-    }
-    // favorites.push(element);
+    var favorites = setupFavorites();
+
     console.log(element.parentNode.parentNode.childNodes[2]);
-    console.log(element.parentNode.parentNode.childNodes[2].innerHTML);
-    favorites.push(element.parentNode.parentNode.childNodes[2].innerHTML);
+    console.log(element.parentNode.parentNode.childNodes[2].innerHTML);  //  description link to gist page
+    console.log(element.parentNode.parentNode.childNodes[3].innerHTML);  // language
+
+    var li = ''; // empty string.  Could use this as a node, but let's not.
+    li += element.parentNode.parentNode.childNodes[2].innerHTML; // add link to string
+    li += element.parentNode.parentNode.childNodes[3].innerHTML; // add language type
+    //li += '</li>';
+
+    favorites.push(li);
     localStorage.setItem("favoritesList", JSON.stringify(favorites)); // set in localStorage
 }
 
 
 function displayFavorites(){
-    var favorites;
+    var favorites = setupFavorites();
     var formattedFavorites = new Array();
     clearResults('searchResultsUL');
-    if (localStorage.getItem("favoritesList") === null)
-    {
-	favorites = new Array();
-	localStorage["favoritesList"] = JSON.stringify(favorites); // set in localStorage
-    }
-    else
-    {
-	favorites = JSON.parse(localStorage["favoritesList"]);  // get from localStorage
-    }    
+
     for (var i=0; i < favorites.length; i++)
 	{
 	    var r = document.createElement('li');
 	    //r.style.clear = 'both';
-	    r.innerHTML = favorites[i];
+	    r.innerHTML = "<input type=\"button\" value=\"Remove\" onClick=\"RemoveFromFavorites(this)\">";
+	    r.innerHTML += favorites[i];
 	    console.log(r);
 	    formattedFavorites.push(r);
 	}
     displayResults(formattedFavorites,'searchResultsUL');
 }
+
+
+function RemoveFromFavorites(element){
+    
+}
+
 
 // get all recent gists
 function loadGists(){
@@ -183,11 +187,11 @@ function parseGists(gistObject, allowedLanguages, pageNumber){
 
 	if (description != "")
 	{ // handle gists that have no description
-	    link = favAddLink + '<div><a href="' + htmlURL + '">' + description + '</a>' + '</div> '  + thisLanguage  ; 
+	    link = favAddLink + '<div><a href="' + htmlURL + '">' + description + '</a>' + '</div><div> '  + thisLanguage + '</div>' ; 
 	}
 	else
 	{
-	    link = favAddLink + '<div><a href="' + htmlURL + '">' + 'no description' +  '</a>' + '</div> '  + thisLanguage;  
+	    link = favAddLink + '<div><a href="' + htmlURL + '">' + 'no description' +  '</a>' + '</div><div> '  + thisLanguage + '</div>';  
 	}
      	r.innerHTML = i + " -> " + link;
 	
