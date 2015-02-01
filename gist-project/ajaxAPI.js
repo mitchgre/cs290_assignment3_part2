@@ -67,13 +67,14 @@ function addToFavorites(element){  // take a DOM element on call
 
     favorites.push(li);
     localStorage.setItem("favoritesList", JSON.stringify(favorites)); // set in localStorage
+    displayFavorites();
 }
 
 
 function displayFavorites(){
     var favorites = setupFavorites();
     var formattedFavorites = new Array();
-    clearResults('searchResultsUL');
+    clearResults('favoritesListUL');
 
     for (var i=0; i < favorites.length; i++)
 	{
@@ -88,7 +89,7 @@ function displayFavorites(){
 	    // console.log(r);
 	    formattedFavorites.push(r);
 	}
-    displayResults(formattedFavorites,'searchResultsUL');
+    displayResults(formattedFavorites,'favoritesListUL');
 }
 
 
@@ -208,7 +209,7 @@ function parseGists(gistObject, allowedLanguages, pageNumber){
 	{
 	    link = favAddLink + '<div><a href="' + htmlURL + '">' + 'no description' +  '</a>' + '</div><div> '  + thisLanguage + '</div>';  
 	}
-     	r.innerHTML = i + " -> " + link;
+     	r.innerHTML = '<div>'+i+'</div>' + link;
 	
 	if (allowedLanguages.length == 0) // no filtering
 	{

@@ -1,7 +1,9 @@
 
 div {
-    //clear:both;
+    
     float:left;
+    border:solid black;
+    border-width: 1px;
 }
 
 li {
@@ -10,4 +12,30 @@ li {
 
 #languageBoxes, #searchBox{
     float:left;
+    
+}
+
+#controlBox {
+    float:left;
+    width:100%;
+}
+
+
+#resultBox {
+    float:left;
+    clear:left; /*Place Below controlBox */
+    width:100%; 
+}
+
+#searchResultsDiv {
+    float:left;
+    width:50%;
+    overflow:auto;
+}
+
+#favoritesListDiv{
+    float:left;
+    width:49%;
+    overflow:hidden;   
+
 }

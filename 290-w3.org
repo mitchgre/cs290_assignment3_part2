@@ -244,4 +244,627 @@ Untracked files:
 
 	vid3/
 
-root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   290-w3.org
+	modified:   gist-project/ajaxAPI.js
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   290-w3.org
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	vid3/
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Sorta works.  Not quite parsing correctly. "
+[master 644e36f] Sorta works.  Not quite parsing correctly.
+ 2 files changed, 241 insertions(+), 17 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Added links to items with no description"
+[master b146098] Added links to items with no description
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+	modified:   gist-project/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git diff gist-project/ajaxAPI.js
+WARNING: terminal is not fully functional
+-  (press RETURN)
+diff --git a/gist-project/ajaxAPI.js b/gist-project/ajaxAPI.js
+index f6caedb..ee816af 100644
+--- a/gist-project/ajaxAPI.js
++++ b/gist-project/ajaxAPI.js
+@@ -1,6 +1,7 @@
+ window.onload = function() {
+     document.getElementById('title').innerHTML = 
+        "<h1>Search Gists</h1>";
++
+ };
+ 
+ function loadGists() {
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git diff gist-project/ajaxAPI.js
+WARNING: terminal is not fully functional
+-  (press RETURN)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Cleaned up (messed up?) HTML"
+On branch master
+Changes not staged for commit:
+	modified:   gist-project/index.html
+
+Untracked files:
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Cleaned up (messed up?) HTML"
+[master 6b93e64] Cleaned up (messed up?) HTML
+ 1 file changed, 44 insertions(+), 32 deletions(-)
+ rewrite gist-project/index.html (73%)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+	modified:   gist-project/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Fumbling with getting the checkbox values"
+[master c6b8fc1] Fumbling with getting the checkbox values
+ 2 files changed, 24 insertions(+), 10 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+	modified:   gist-project/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Got checkbox values. The new problem is displaying the results of parseGists().  parseGists() makes an array of divs:  \"var r = document.createElement('div')\".   it then adds to the inner HTML of each div in the gistObject (30 elements) adding in the description and the link.   Or at least it used to before I started messing with the language filtering.  Now, I've got a separate function to display the results and I wanted to pass this array of results.  What is in this array? doing a \"console.log(results)\" before passing to a function turns up... "
+[master aa9f6fb] Got checkbox values. The new problem is displaying the results of parseGists().  parseGists() makes an array of divs:  "var r = document.createElement('div')".   it then adds to the inner HTML of each div in the gistObject (30 elements) adding in the description and the link.   Or at least it used to before I started messing with the language filtering.  Now, I've got a separate function to display the results and I wanted to pass this array of results.  What is in this array? doing a "console.log(results)" before passing to a function turns up...
+ 2 files changed, 75 insertions(+), 77 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git log
+WARNING: terminal is not fully functional
+-  (press RETURN)
+commit aa9f6fb993e2da2f5bc7faa993ebcd3f39bffd4d
+Author: greg <gregorio.jp.mitchell@gmail.com>
+Date:   Fri Jan 30 06:01:35 2015 -0700
+
+    Got checkbox values. The new problem is displaying the results of parseGists().  parseGists() makes 
+commit c6b8fc1a3ec3fe005633f5733462027d76baa133
+Author: greg <gregorio.jp.mitchell@gmail.com>
+Date:   Fri Jan 30 04:57:24 2015 -0700
+
+    Fumbling with getting the checkbox values
+
+commit 6b93e64269fd307daa7c581151fc325cde240e7c
+Author: greg <gregorio.jp.mitchell@gmail.com>
+Date:   Fri Jan 30 04:14:08 2015 -0700
+
+    Cleaned up (messed up?) HTML
+
+commit b14609888871aabbea808b88353ec26b930c2dac
+Author: greg <gregorio.jp.mitchell@gmail.com>
+Date:   Fri Jan 30 03:37:59 2015 -0700
+
+    Added links to items with no description
+:q
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# gitk
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Here's the results of console.log(results).  Let's test line breaks in git commit messages too.
+
+Chromium gives:
+[div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div]
+
+Which can be expanded on to 
+
+
+0: div
+accessKey: ""
+align: ""
+attributes: NamedNodeMap
+baseURI: ""
+childElementCount: 1
+childNodes: NodeList[3]
+children: HTMLCollection[1]
+classList: DOMTokenList[0]
+className: ""
+clientHeight: 0
+clientLeft: 0
+clientTop: 0
+.
+> > > > > > > > > > > > > > > > > > > > > > 
+>   C-c C-c
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Here's the results of console.log(results).  Let's test line breaks in git commit messages too.
+
+Chromium gives:
+[div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div]
+
+Which can be expanded on to 
+
+
+0: div
+accessKey: \"\"
+align: \"\"
+attributes: NamedNodeMap
+baseURI: \"\"
+childElementCount: 1
+childNodes: NodeList[3]
+children: HTMLCollection[1]
+classList: DOMTokenList[0]
+className: \"\"
+clientHeight: 0
+clientLeft: 0
+clientTop: 0
+"
+> > > > > > > > > > > > > > > > > > > > > 
+  C-c C-c
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Here's the results of console.log(results).  Let's test line breaks in git commit messages too.
+
+Chromium gives:
+\[div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div\]
+
+Which can be expanded on to 
+
+
+0: div
+accessKey: \"\"
+align: \"\"
+attributes: NamedNodeMap
+baseURI: \"\"
+childElementCount: 1
+childNodes: NodeList[3]
+children: HTMLCollection[1]
+classList: DOMTokenList[0]
+className: \"\"
+clientHeight: 0
+clientLeft: 0
+clientTop: 0
+"
+> > > > > > > > > > > > > > > > > > > > >   C-c C-c  C-c C-c
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Here's the results of console.log(results).  Let's test line breaks in git commit messages too.
+
+Chromium gives:
+\[div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div, div\]
+
+Which can be expanded on to 
+
+
+0\: div
+accessKey\: \"\"
+align\: \"\"
+attributes\: NamedNodeMap
+baseURI\: \"\"
+childElementCount\: 1
+childNodes\: NodeList[3]
+children\: HTMLCollection[1]
+classList\: DOMTokenList[0]
+className\: \"\"
+clientHeight\: 0
+clientLeft\: 0
+clientTop\: 0
+> > > > > > > > > > > > > > > > > > > > > 
+> "
+On branch master
+Untracked files:
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+nothing added to commit but untracked files present
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# gitk
+  C-c C-c
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "The html is now showing, but the languages are all showing as 'undefined'."
+[master cd468dd] The html is now showing, but the languages are all showing as 'undefined'.
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# gitk&
+[1] 5381
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Not sure why this if() was there, so I removed it."
+[master 11fdd52] Not sure why this if() was there, so I removed it.
+ 1 file changed, 26 insertions(+), 28 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cd .
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  gist-project  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add gist-project/style.css
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Language filtering works.  Stopped trying to recurse over the object to find property keys, and just used them directly by eyeballing the object structure.
+
+Clearly something was wrong with the recursive function to search for property names, which is a shame."
+> > 
+[master 13df2b8] Language filtering works.  Stopped trying to recurse over the object to find property keys, and just used them directly by eyeballing the object structure.
+ 2 files changed, 28 insertions(+), 12 deletions(-)
+ create mode 100644 gist-project/style.css
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# gitk&
+[2] 10442
+[1]   Done                    gitk
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   gist-project/ajaxAPI.js
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "removed recursive search for property with no apparent effect.  Working on pages.  https://developer.github.com/guides/traversing-with-pagination/"
+[master bfaa887] removed recursive search for property with no apparent effect.  Working on pages.  https://developer.github.com/guides/traversing-with-pagination/
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "cleaned up html some more.  Using ul/li instead of div for everything" 
+[master fee45c5] cleaned up html some more.  Using ul/li instead of div for everything
+ 2 files changed, 17 insertions(+), 29 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Cleared resultList in displayResults() when search is pressed more than once."
+[master da51c79] Cleared resultList in displayResults() when search is pressed more than once.
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Made pagination work, added some comments for documentation."
+[master b8c39ea] Made pagination work, added some comments for documentation.
+ 2 files changed, 113 insertions(+), 126 deletions(-)
+ rewrite gist-project/ajaxAPI.js (74%)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# sshfs -o nonempty mitchgre@access.engr.oregonstate.edu:/ /osu/
+fuse: bad mount point `/osu/': Transport endpoint is not connected
+
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# umount /osu/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# umount /osu/
+umount: /osu/: not mounted
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# sshfs -o nonempty mitchgre@access.engr.oregonstate.edu:/ /osu/
+mitchgre@access.engr.oregonstate.edu's password: 
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mount --bind  /osu/nfs/stak/students/m/mitchgre/ /osuHome/
+mount: mount point /osuHome/ does not exist
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls /
+ls: cannot access /osuHome: Transport endpoint is not connected
+bin                                          dev         jfl-laptop  n900t    run   var
+boot                                         drive_c     lib         opt      sbin  vid2
+cdrom                                        etc         lib64       osu      srv   vmlinuz
+cf                                           hello.txt   lost+found  osuHome  sys   waxbox
+chrysler-town-and-country-cargo-volume.org   home        media       proc     tmp
+chrysler-town-and-country-cargo-volume.org~  initrd.img  mnt         root     usr
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# umount /osuHome/
+umount: /osuHome: device is busy.
+        (In some cases useful info about processes that use
+         the device is found by lsof(8) or fuser(1))
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mount --bind -o nonempty  /osu/nfs/stak/students/m/mitchgre/ /osuHome/
+mount: mount point /osuHome/ does not exist
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls /osu/nfs/stak/students/m/mitchgre/ 
+cs165  cs261-data-structures  mail  public_html  Windows.Documents  Windows.Profile
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls /osu/nfs/stak/students/m/mitchgre/public_html/
+assignment3  cs290-assignment2  cs290-assignment2-broke  cs290-assignment2-broke2  phptest.php
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# mkdir /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  gist-project  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cd /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# git clone /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/.git
+Cloning into 'week3'...
+  C-c C-c  C-c C-c  C-c C-cKilled
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls
+week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls week3/
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# git clone /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/.git
+fatal: destination path 'week3' already exists and is not an empty directory.
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# cd week3/
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# ls -a
+.  ..  .git
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# git pull
+fatal: Not a git repository (or any parent up to mount point /osu)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3# cd ..
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls ..
+assignment3        cs290-assignment2-broke   cs290_assignment3_part2
+cs290-assignment2  cs290-assignment2-broke2  phptest.php
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls
+week3
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# rm -fr week3/
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# git clone /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/
+Cloning into 'week3'...
+done.
+Checking out files: 100% (11/11), done.
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# ls -l
+ls: reading directory .: Input/output error
+total 0
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# cd -
+bash: cd: /osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2/week3: No such file or directory
+root@giantleap:/osu/nfs/stak/students/m/mitchgre/public_html/cs290_assignment3_part2# cd /cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3/
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  gist-project  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls -a
+.  ..  .#290-w3.org  290-w3.org  gist-project  .git  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Sorta works asynchronously, but it's really sloppy"
+[master 5cc0d69] Sorta works asynchronously, but it's really sloppy
+ 1 file changed, 57 insertions(+), 26 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Asynchronous calls seem to work. Made arrays for each request and corresponding result"
+[master c99d985] Asynchronous calls seem to work. Made arrays for each request and corresponding result
+ 1 file changed, 39 insertions(+), 40 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+nothing added to commit but untracked files present (use "git add" to track)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+	modified:   gist-project/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Reorganized a little"
+[master 45e108f] Reorganized a little
+ 2 files changed, 53 insertions(+), 44 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls
+290-w3.org  gist-project  vid1  vid2  vid3
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls vid1/
+demo.js  index.html
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# ls vid1/demo.js 
+vid1/demo.js
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cat vid1/demo.js 
+window.onload = function() {
+    // note there is a typo in the video, document.getElementByID where D is capital results in an undefined type error
+    document.getElementById('output').innerHTML = 'test'; 
+};
+
+function saveDemoInput() {
+    console.log(document.getElementsByName('demo-input')[0].value);
+    };
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# cat vid2/demo.js 
+window.onload = function() {
+    document.getElementById('output').innerHTML = 'test'; 
+};
+
+function saveDemoInput() {
+    localStorage.setItem('demoText',document.getElementsByName('demo-input')[0].value);
+};
+
+function clearLocalStorate(){
+    localStorage.clear();
+}
+
+
+function displayLocalStorage() {
+    document.getElementById('output').innerHTML = localStorage.getItem('demoText');
+}
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+	modified:   gist-project/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Favorites list in localStorage works to add values, but can't remove them yet.  Also missing language names."
+[master e5d32fb] Favorites list in localStorage works to add values, but can't remove them yet.  Also missing language names.
+ 2 files changed, 82 insertions(+), 10 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   gist-project/ajaxAPI.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	gist-project/ajaxAPI_dynamic_properties_attempt.js
+	gist-project/style.css~
+	vid3/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Added language names and remove buttons to favorites list.  Need to wire up the buttons, since they don't do anything yet."
+[master c683f8a] Added language names and remove buttons to favorites list.  Need to wire up the buttons, since they don't do anything yet.
+ 1 file changed, 32 insertions(+), 28 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git add -u
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# git commit -m "Wired up the remove buttons in the favorites list.  Now I want to display both search results and favorites in the same window. "
+[master 433ec13] Wired up the remove buttons in the favorites list.  Now I want to display both search results and favorites in the same window.
+ 2 files changed, 23 insertions(+), 8 deletions(-)
+root@giantleap:/cf/home/notes/oregon-state-post-bacc/cs290-web-design/experiments/week3# 
