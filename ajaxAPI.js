@@ -111,6 +111,29 @@ function RemoveFromFavorites(element){
 }
 
 
+/*
+  favoritesHasURL(url) takes url is a string and loops over the favorites list 
+  to see if the string is already in the list.  
+
+  Returns true or false.
+  */
+function favoritesHasURL(url){
+    var favorites = setupFavorites();   // get from localStorage
+    for (var i=0; i < favorites.length; i++)
+    {
+	// get ith element of favorites list
+	var str = favorites[i];
+	// get url string from element 
+	// (need to chop off ends of string, get region in quotes)
+	str = str.substring(str.indexOf('"')+1,str.lastIndexOf('"'));
+	// console.log(str);
+	// compare this value against url and return if true
+	if (str === url)
+	    return true;
+    }
+    return false;
+}
+
 // get all recent gists
 function loadGists(){
     clearResults('searchResultsUL');
@@ -215,16 +238,30 @@ function parseGists(gistObject, allowedLanguages, pageNumber){
 	
 	// add code here to filter results that are in the favorites list
 
-	if (allowedLanguages.length == 0) // no filtering
+	if (allowedLanguages.length == 0) // no filtering by language
 	{
-	    results.push(r);
+	     if (favoritesHasURL(htmlURL))
+	    {
+		console.log("filtering "+htmlURL+" is already in favorites list");
+	    }
+	    else
+	    {
+		results.push(r);
+	    }
 	}
 	else
 	{
 	    if (allowedLanguages.indexOf(thisLanguage) > -1)
 	    { // if this language is in the array of allowed languages
 		console.log("item " + i + " accepted language " + thisLanguage );
-		results.push(r);
+		if (favoritesHasURL(htmlURL))
+		{
+		    console.log("filtering "+htmlURL+" is already in favorites list");
+		}
+		else
+		{
+		    results.push(r);
+		}
      	    }
 	    else
 	    { 
