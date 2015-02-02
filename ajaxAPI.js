@@ -213,6 +213,8 @@ function parseGists(gistObject, allowedLanguages, pageNumber){
 	}
      	r.innerHTML = '<div>'+i+'</div>' + link;
 	
+	// add code here to filter results that are in the favorites list
+
 	if (allowedLanguages.length == 0) // no filtering
 	{
 	    results.push(r);
